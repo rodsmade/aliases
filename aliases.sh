@@ -4,7 +4,7 @@ alias ga="git add"
 alias 'ga.'="git add ."
 gapat() {
     local search_terms=$(echo "$*" | tr ' ' '|')
-    git status -sb | grep -E "$search_terms" | awk '{print $2}' | xargs git add
+    git status -sb | sed '1d' | grep -E "$search_terms" | awk '{print $2}' | xargs git add
 }
 gab() {
     git add .
