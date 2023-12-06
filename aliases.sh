@@ -23,11 +23,10 @@ gac () {
     git add "${files_to_add[@]}" && git commit -m "$commit_message"
 }
 alias 'ga.c'="git add . && git commit -m"
+alias 'ga.cp'="git add . && git commit -m && git push"
 alias gcamnoe="git commit --amend --no-edit"
 alias gp="git push"
-gpsu() {
-    git push --set-upstream origin "$(git branch --show-current)"
-}
+alias gpsu="git push --set-upstream origin $(git branch --show-current)"
 alias gr="git restore"
 alias 'gr.'="git restore ."
 alias grs="git restore --staged"
