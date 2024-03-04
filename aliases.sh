@@ -1,14 +1,24 @@
 # Git
 alias gs="git status -sb"
-alias ga="git add"
+ga() {
+    git add "$@" && gs
+}
 alias 'ga.'="git add ."
 gapat() {
     local search_terms=$(echo "$*" | tr ' ' '|')
     git status -sb | sed '1d' | grep -E "$search_terms" | awk '{print $2}' | xargs git add
+    gs
 }
 gab() {
+    # Check if the number of arguments is zero
+    if [ "$#" -eq 0 ]; then
+        echo "Error: No files specified to unstage. Aborting."
+        return 1  # Return a non-zero exit code to indicate failure
+    fi
+
     git add .
     git restore --staged "$@"
+    gs
 }
 alias gc="git commit -m"
 gac () {
