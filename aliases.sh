@@ -45,3 +45,7 @@ alias gr="git restore"
 alias 'gr.'="git restore ."
 alias grs="git restore --staged"
 alias 'grs.'="git restore --staged ."
+# Git diff
+alias gd="git diff --color-moved=plain --color-moved-ws=no --src-prefix='before/' --dst-prefix='after/'"
+## Verbose mode (shows whole functions instead of context)
+alias gdv="git diff --color-moved=plain --color-moved-ws=no --src-prefix='before/' --dst-prefix='after/' --function-context"
